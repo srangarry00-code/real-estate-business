@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Rogers Personal Real Estate Corporation | Vernon, BC Realtor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#111C2E',
+                            dark: '#0A111A',
+                            light: '#1E2D4A',
+                        },
+                        charcoal: '#22252A',
+                        gold: {
+                            DEFAULT: '#C5A880',
+                            light: '#D4BC98',
+                            dark: '#A68860',
+                        },
+                        beige: {
+                            DEFAULT: '#F7F5F0',
+                            dark: '#EAE5DC',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7F5F0;
+            color: #22252A;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(17, 28, 46, 0.75), rgba(17, 28, 46, 0.65)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .vernon-bg {
+            background: linear-gradient(rgba(17, 28, 46, 0.6), rgba(17, 28, 46, 0.6)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .gold-border {
+            border-color: #C5A880;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #C5A880 0%, #A68860 100%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F5F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A880;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-gold selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header id="site-header" class="sticky top-0 z-50 bg-navy/95 backdrop-blur-md text-white border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand / Logo -->
+                <a href="#home" onclick="switchPage('home')" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy transition-all duration-300">
+                        <i class="fa-solid fa-house-chimney text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-lg sm:text-xl font-bold tracking-wide text-white">Brian Rogers</span>
+                        <span class="block text-[10px] sm:text-xs text-gold tracking-widest uppercase">Personal Real Estate Corporation</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <button onclick="switchPage('home')" class="nav-link text-sm uppercase tracking-wider text-white hover:text-gold transition font-medium pb-1 border-b-2 border-gold" data-page="home">Home</button>
+                    <button onclick="switchPage('properties')" class="nav-link text-sm uppercase tracking-wider text-gray-300 hover:text-gold transition font-medium pb-1 border-b-2 border-transparent" data-page="properties">Properties</button>
+                    <button onclick="switchPage('buy')" class="nav-link text-sm uppercase tracking-wider text-gray-300 hover:text-gold transition font-medium pb-1 border-b-2 border-transparent" data-page="buy">Buy</button>
+                    <button onclick="switchPage('sell')" class="nav-link text-sm uppercase tracking-wider text-gray-300 hover:text-gold transition font-medium pb-1 border-b-2 border-transparent" data-page="sell">Sell</button>
+                    <button onclick="switchPage('about')" class="nav-link text-sm uppercase tracking-wider text-gray-300 hover:text-gold transition font-medium pb-1 border-b-2 border-transparent" data-page="about">About Brian</button>
+                    <button onclick="switchPage('testimonials')" class="nav-link text-sm uppercase tracking-wider text-gray-300 hover:text-gold transition font-medium pb-1 border-b-2 border-transparent" data-page="testimonials">Testimonials</button>
+                    <button onclick="switchPage('contact')" class="nav-link text-sm uppercase tracking-wider text-gray-300 hover:text-gold transition font-medium pb-1 border-b-2 border-transparent" data-page="contact">Contact</button>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="tel:2503084255" class="gold-gradient text-navy font-semibold px-5 py-2.5 rounded-sm shadow-md hover:opacity-95 transition flex items-center space-x-2 text-sm">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Call Brian</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-gray-200 hover:text-gold focus:outline-none p-2" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-dark border-t border-white/10 px-6 py-6 space-y-4 shadow-2xl">
+            <button onclick="switchPage('home'); toggleMobileMenu();" class="block w-full text-left py-2 text-base font-medium text-gray-200 hover:text-gold border-b border-white/5">Home</button>
+            <button onclick="switchPage('properties'); toggleMobileMenu();" class="block w-full text-left py-2 text-base font-medium text-gray-200 hover:text-gold border-b border-white/5">Properties</button>
+            <button onclick="switchPage('buy'); toggleMobileMenu();" class="block w-full text-left py-2 text-base font-medium text-gray-200 hover:text-gold border-b border-white/5">Buy</button>
+            <button onclick="switchPage('sell'); toggleMobileMenu();" class="block w-full text-left py-2 text-base font-medium text-gray-200 hover:text-gold border-b border-white/5">Sell</button>
+            <button onclick="switchPage('about'); toggleMobileMenu();" class="block w-full text-left py-2 text-base font-medium text-gray-200 hover:text-gold border-b border-white/5">About Brian</button>
+            <button onclick="switchPage('testimonials'); toggleMobileMenu();" class="block w-full text-left py-2 text-base font-medium text-gray-200 hover:text-gold border-b border-white/5">Testimonials</button>
+            <button onclick="switchPage('contact'); toggleMobileMenu();" class="block w-full text-left py-2 text-base font-medium text-gray-200 hover:text-gold border-b border-white/5">Contact</button>
+            <div class="pt-2">
+                <a href="tel:2503084255" class="w-full gold-gradient text-navy font-semibold px-4 py-3 rounded-sm text-center flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Call +1 250-308-4255</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow">
+
+        <!-- ================= PAGE 1: HOME ================= -->
+        <div id="page-home" class="page-view animate-fadeIn">
+            <!-- Hero Section -->
+            <section class="hero-bg relative min-h-[85vh] flex items-center justify-center text-center px-4 py-20">
+                <div class="max-w-4xl mx-auto text-white space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-navy/85 border border-gold/40 px-4 py-1.5 rounded-full text-gold text-xs sm:text-sm tracking-wider uppercase mb-2">
+                        <i class="fa-solid fa-star text-gold"></i>
+                        <span>5.0 Rating • 10 Google Reviews • Vernon, BC</span>
+                    </div>
+                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+                        Find Your Place in Vernon
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed">
+                        Professional real estate guidance for buying, selling, and moving with confidence in the North Okanagan.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                        <button onclick="switchPage('properties')" class="w-full sm:w-auto gold-gradient text-navy font-bold px-8 py-4 rounded-sm shadow-lg hover:opacity-95 transition uppercase tracking-wider text-sm flex items-center justify-center space-x-2">
+                            <span>View Properties</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button onclick="switchPage('contact')" class="w-full sm:w-auto bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-sm hover:bg-white hover:text-navy transition uppercase tracking-wider text-sm">
+                            Contact Brian
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Floating Trust Card (Desktop) -->
+                <div class="absolute bottom-6 right-6 hidden md:flex items-center space-x-4 bg-navy/90 border border-gold/30 p-4 rounded-sm text-white shadow-2xl backdrop-blur-sm">
+                    <div class="text-gold text-3xl font-serif font-bold">5.0</div>
+                    <div>
+                        <div class="flex text-gold text-xs space-x-0.5">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-gray-300">Based on 10 Google Reviews</p>
+                        <p class="text-[11px] text-gold font-medium mt-0.5">Personal Realtor Service in Vernon</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trust Bar -->
+            <section class="bg-navy text-white py-6 border-b border-white/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="p-2">
+                        <div class="text-gold font-serif text-2xl sm:text-3xl font-bold">5.0 / 5.0</div>
+                        <div class="text-xs uppercase tracking-widest text-gray-300 mt-1">Google Rating</div>
+                    </div>
+                    <div class="p-2 border-t md:border-t-0 md:border-l border-white/10">
+                        <div class="text-gold font-serif text-2xl sm:text-3xl font-bold">10 Reviews</div>
+                        <div class="text-xs uppercase tracking-widest text-gray-300 mt-1">Verified Clients</div>
+                    </div>
+                    <div class="p-2 border-t md:border-t-0 md:border-l border-white/10">
+                        <div class="text-gold font-serif text-2xl sm:text-3xl font-bold">Vernon, BC</div>
+                        <div class="text-xs uppercase tracking-widest text-gray-300 mt-1">Local Expertise</div>
+                    </div>
+                    <div class="p-2 border-t md:border-t-0 md:border-l border-white/10">
+                        <div class="text-gold font-serif text-2xl sm:text-3xl font-bold">Open 24/7</div>
+                        <div class="text-xs uppercase tracking-widest text-gray-300 mt-1">Always Responsive</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Properties Sample Section -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">Sample Portfolio</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mt-1">Featured Vernon Properties</h2>
+                    </div>
+                    <button onclick="switchPage('properties')" class="mt-4 md:mt-0 text-navy hover:text-gold font-semibold uppercase tracking-wider text-sm flex items-center space-x-2 transition">
+                        <span>View All Listings</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="home-featured-grid">
+                    <!-- Cards populated via JS or static markup -->
+                </div>
+            </section>
+
+            <!-- Buy & Sell Pillars -->
+            <section class="bg-beige-dark/50 py-20 px-4 sm:px-6 lg:px-8 border-y border-gold/20">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20 hover:shadow-md transition">
+                        <div class="w-12 h-12 rounded-sm bg-navy text-gold flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-navy mb-3">Buy With Confidence</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Professional support from property search through viewing, negotiation, and closing in Vernon and surrounding Okanagan areas.
+                        </p>
+                        <button onclick="switchPage('buy')" class="text-navy font-semibold text-xs uppercase tracking-wider flex items-center space-x-2 hover:text-gold transition">
+                            <span>Explore Buying Process</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20 hover:shadow-md transition">
+                        <div class="w-12 h-12 rounded-sm bg-navy text-gold flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-navy mb-3">Sell With Strategy</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            A structured approach to preparing, pricing strategy, professional marketing, and negotiating your property sale with care.
+                        </p>
+                        <button onclick="switchPage('sell')" class="text-navy font-semibold text-xs uppercase tracking-wider flex items-center space-x-2 hover:text-gold transition">
+                            <span>Explore Selling Process</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20 hover:shadow-md transition md:col-span-2 lg:col-span-1">
+                        <div class="w-12 h-12 rounded-sm bg-navy text-gold flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-navy mb-3">Local Vernon Guidance</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Dedicated personal Realtor service based right here in Vernon, BC, offering responsive communication and deep market insight.
+                        </p>
+                        <button onclick="switchPage('about')" class="text-navy font-semibold text-xs uppercase tracking-wider flex items-center space-x-2 hover:text-gold transition">
+                            <span>Meet Brian Rogers</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vernon Local Area Section -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">Okanagan Living</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy">Live in Vernon, British Columbia</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            Nestled in the heart of the North Okanagan, Vernon offers an unmatched quality of life surrounded by pristine lakes, rolling orchards, and scenic mountain ranges.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Whether you are looking for a peaceful family home in a quiet residential neighborhood, a modern downtown condo, or a lakeside retreat, Vernon delivers a vibrant community spirit and year-round recreational beauty.
+                        </p>
+                        <div class="pt-2">
+                            <button onclick="switchPage('contact')" class="gold-gradient text-navy font-semibold px-6 py-3 rounded-sm text-xs uppercase tracking-wider shadow-sm hover:opacity-95 transition">
+                                Talk to Local Expert Brian
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative h-96 rounded-sm overflow-hidden shadow-xl border border-gold/30">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80" alt="Vernon Okanagan Scenery" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent flex items-end p-6">
+                            <span class="text-white font-serif text-lg">Vernon, BC • 4313 27 St #102</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Preview Section -->
+            <section class="bg-navy text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">Client Feedback</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Trusted by Clients in Vernon</h2>
+                        <p class="text-gray-300 text-sm mt-3">Read verified Google reviews from satisfied homeowners who worked with Brian Rogers.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-navy-light/60 p-8 rounded-sm border border-gold/20 flex flex-col justify-between">
+                            <div>
+                                <div class="flex text-gold text-sm mb-4">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-gray-200 text-sm italic leading-relaxed">
+                                    “Brian responds to calls at all hours on any day of the week, he is always available and ready to work on …”
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                                <span class="font-serif font-bold text-gold">Jill Bargen</span>
+                                <span class="text-xs text-gray-400">Google Review</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-navy-light/60 p-8 rounded-sm border border-gold/20 flex flex-col justify-between">
+                            <div>
+                                <div class="flex text-gold text-sm mb-4">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-gray-200 text-sm italic leading-relaxed">
+                                    “From the first email inquiring about selling our properties and buying a new one, to after the keys were in our hands, Brian was a step ahead of us and had everything in order.”
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                                <span class="font-serif font-bold text-gold">Diana Wenzlaff</span>
+                                <span class="text-xs text-gray-400">Google Review</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-navy-light/60 p-8 rounded-sm border border-gold/20 flex flex-col justify-between">
+                            <div>
+                                <div class="flex text-gold text-sm mb-4">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-gray-200 text-sm italic leading-relaxed">
+                                    “I had my home listed with another realtor for 90 days without an offer. I then hired Brian and he had my home listed, sold, conditions removed in 21 days!”
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                                <span class="font-serif font-bold text-gold">Brittany Smith</span>
+                                <span class="text-xs text-gray-400">Google Review</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <button onclick="switchPage('testimonials')" class="border border-gold text-gold hover:bg-gold hover:text-navy px-8 py-3 rounded-sm text-xs font-semibold uppercase tracking-wider transition">
+                            View All 10 Google Reviews
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lead Generation CTA Banners -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-beige-dark p-8 rounded-sm border border-gold/30 text-center">
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Looking to Buy?</h3>
+                        <p class="text-gray-600 text-sm mb-6">Tell Brian what you're looking for in Vernon.</p>
+                        <button onclick="switchPage('buy')" class="gold-gradient text-navy font-semibold px-6 py-2.5 rounded-sm text-xs uppercase tracking-wider shadow-sm hover:opacity-95 transition">
+                            Start Your Search
+                        </button>
+                    </div>
+
+                    <div class="bg-beige-dark p-8 rounded-sm border border-gold/30 text-center">
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Thinking About Selling?</h3>
+                        <p class="text-gray-600 text-sm mb-6">Get in touch to discuss your property.</p>
+                        <button onclick="switchPage('sell')" class="gold-gradient text-navy font-semibold px-6 py-2.5 rounded-sm text-xs uppercase tracking-wider shadow-sm hover:opacity-95 transition">
+                            Talk About Selling
+                        </button>
+                    </div>
+
+                    <div class="bg-beige-dark p-8 rounded-sm border border-gold/30 text-center">
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Have Questions?</h3>
+                        <p class="text-gray-600 text-sm mb-6">Brian is just a call away, open 24/7.</p>
+                        <a href="tel:2503084255" class="inline-block gold-gradient text-navy font-semibold px-6 py-2.5 rounded-sm text-xs uppercase tracking-wider shadow-sm hover:opacity-95 transition">
+                            Call +1 250-308-4255
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 2: PROPERTIES / LISTINGS ================= -->
+        <div id="page-properties" class="page-view hidden animate-fadeIn">
+            <div class="bg-navy py-16 text-white px-4">
+                <div class="max-w-7xl mx-auto text-center">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold">Vernon Real Estate</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Properties & Listings</h1>
+                    <p class="text-gray-300 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+                        Explore available residential homes, estates, and townhomes in Vernon, BC and surrounding areas. (Sample demo listings).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Search & Filter Bar -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+                <div class="bg-white p-6 rounded-sm shadow-xl border border-gold/30 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Search Keywords</label>
+                        <input type="text" id="filter-search" oninput="filterProperties()" placeholder="Address, neighborhood..." class="w-full bg-beige p-2.5 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Property Type</label>
+                        <select id="filter-type" onchange="filterProperties()" class="w-full bg-beige p-2.5 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold">
+                            <option value="">All Types</option>
+                            <option value="Single Family">Single Family</option>
+                            <option value="Townhome">Townhome</option>
+                            <option value="Luxury Estate">Luxury Estate</option>
+                            <option value="Penthouse Condo">Penthouse Condo</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Max Price</label>
+                        <select id="filter-price" onchange="filterProperties()" class="w-full bg-beige p-2.5 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold">
+                            <option value="99999999">Any Price</option>
+                            <option value="800000">Under $800,000</option>
+                            <option value="1200000">Under $1,200,000</option>
+                            <option value="2000000">Under $2,000,000</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Bedrooms</label>
+                        <select id="filter-beds" onchange="filterProperties()" class="w-full bg-beige p-2.5 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold">
+                            <option value="0">Any Beds</option>
+                            <option value="2">2+ Beds</option>
+                            <option value="3">3+ Beds</option>
+                            <option value="4">4+ Beds</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button onclick="resetFilters()" class="w-full bg-navy text-white font-semibold py-2.5 rounded-sm text-xs uppercase tracking-wider hover:bg-navy-light transition">
+                            Reset Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listings Grid / List -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="flex justify-between items-center mb-8">
+                    <span id="results-count" class="text-sm text-gray-600 font-medium">Showing all sample listings</span>
+                    <div class="flex items-center space-x-2 text-sm text-gray-600">
+                        <span>Sort by:</span>
+                        <select id="sort-by" onchange="filterProperties()" class="bg-white border border-gray-300 rounded-sm p-1.5 text-sm focus:outline-none focus:border-gold">
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Populated via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PROPERTY DETAIL SUB-VIEW ================= -->
+        <div id="page-property-detail" class="page-view hidden animate-fadeIn py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <button onclick="switchPage('properties')" class="inline-flex items-center space-x-2 text-navy hover:text-gold font-semibold text-xs uppercase tracking-wider mb-6 transition">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Properties</span>
+            </button>
+
+            <div id="property-detail-content">
+                <!-- Dynamically populated detail -->
+            </div>
+        </div>
+
+        <!-- ================= PAGE 3: BUY ================= -->
+        <div id="page-buy" class="page-view hidden animate-fadeIn">
+            <div class="bg-navy py-16 text-white px-4">
+                <div class="max-w-7xl mx-auto text-center">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold">Buyer Representation</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Your Next Home Starts Here</h1>
+                    <p class="text-gray-300 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+                        Professional guidance through every step of your home buying journey in Vernon and the Okanagan Valley.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <!-- Steps Section -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">01</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Understanding Your Needs</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            We sit down to discuss your lifestyle, preferred Vernon neighborhoods, must-have features, and budget requirements.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">02</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Finding Suitable Properties</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Access tailored listings matching your criteria, complete with market updates and prompt notifications of new inventory.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">03</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Property Viewings</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Schedule private viewings at your convenience with flexible scheduling, even outside standard business hours.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">04</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Market Guidance</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Benefit from thorough comparative market analysis to ensure you understand property values and pricing trends.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">05</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Offer & Negotiation Support</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Receive skilled negotiation advocacy to protect your interests and secure favorable purchase terms.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">06</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Closing and Final Steps</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Seamless coordination with inspectors, legal professionals, and lenders right up until keys are in your hand.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Buyer Inquiry Form Section -->
+                <div class="bg-white border border-gold/30 rounded-sm shadow-lg max-w-3xl mx-auto p-8 sm:p-12">
+                    <div class="text-center mb-8">
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">Get Started</span>
+                        <h2 class="font-serif text-3xl font-bold text-navy mt-1">Start Your Home Search</h2>
+                        <p class="text-gray-600 text-sm mt-2">Fill out the form below and Brian will be in touch promptly.</p>
+                    </div>
+
+                    <form id="buyer-form" onsubmit="handleFormSubmit(event, 'buyer-success')" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Full Name *</label>
+                                <input type="text" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Email Address *</label>
+                                <input type="email" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Phone Number *</label>
+                                <input type="tel" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="+1 (250) 000-0000">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Preferred Location</label>
+                                <input type="text" class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="e.g. East Hill, Predator Ridge">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Budget</label>
+                                <select class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold">
+                                    <option>$500k - $750k</option>
+                                    <option>$750k - $1M</option>
+                                    <option>$1M - $1.5M</option>
+                                    <option>$1.5M+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Bedrooms</label>
+                                <select class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold">
+                                    <option>2+ Bedrooms</option>
+                                    <option>3+ Bedrooms</option>
+                                    <option>4+ Bedrooms</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Property Type</label>
+                                <select class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold">
+                                    <option>Single Family</option>
+                                    <option>Townhome</option>
+                                    <option>Condo</option>
+                                    <option>Luxury Estate</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Message / Specific Requirements</label>
+                            <textarea rows="4" class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="Tell Brian what you are looking for..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full gold-gradient text-navy font-bold py-4 rounded-sm text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition">
+                            Submit Buyer Inquiry
+                        </button>
+                    </form>
+
+                    <div id="buyer-success" class="hidden mt-6 bg-green-50 border border-green-200 text-green-800 p-4 rounded-sm text-center text-sm">
+                        <i class="fa-solid fa-circle-check text-green-600 text-lg mr-2"></i> Thank you! Your inquiry has been sent to Brian Rogers. He will contact you shortly.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 4: SELL ================= -->
+        <div id="page-sell" class="page-view hidden animate-fadeIn">
+            <div class="bg-navy py-16 text-white px-4">
+                <div class="max-w-7xl mx-auto text-center">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold">Seller Representation</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Ready to Sell Your Home?</h1>
+                    <p class="text-gray-300 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+                        Get knowledgeable guidance through every step of the selling process in Vernon, British Columbia.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <!-- Seller Steps -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">01</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Property Preparation</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Expert advice on staging, presentation, and minor improvements to maximize buyer appeal from day one.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">02</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Pricing Strategy</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Comprehensive market analysis of recent Vernon sales to position your property competitively for maximum value.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">03</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Marketing & Exposure</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Professional photography, compelling property descriptions, and targeted digital exposure to reach qualified buyers.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">04</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Showing Coordination</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Seamless scheduling of private showings with careful communication and respect for your daily schedule.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">05</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Offer Evaluation & Negotiation</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Detailed review of incoming offers with expert negotiation to achieve favorable terms and conditions.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">06</div>
+                        <h3 class="font-serif text-xl font-bold text-navy mb-2">Closing Process</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Diligent follow-through on fixture removals, legal coordination, and smooth handover of your property.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Seller Lead Form -->
+                <div class="bg-white border border-gold/30 rounded-sm shadow-lg max-w-3xl mx-auto p-8 sm:p-12">
+                    <div class="text-center mb-8">
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">Home Evaluation</span>
+                        <h2 class="font-serif text-3xl font-bold text-navy mt-1">Request a Home Evaluation</h2>
+                        <p class="text-gray-600 text-sm mt-2">Get in touch with Brian to discuss your property value in Vernon.</p>
+                    </div>
+
+                    <form id="seller-form" onsubmit="handleFormSubmit(event, 'seller-success')" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Full Name *</label>
+                                <input type="text" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="Jane Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Email Address *</label>
+                                <input type="email" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="jane@example.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Phone Number *</label>
+                                <input type="tel" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="+1 (250) 000-0000">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Property Address *</label>
+                                <input type="text" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="4313 27 St, Vernon, BC">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Approximate Property Type</label>
+                            <select class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold">
+                                <option>Single Family Home</option>
+                                <option>Townhouse</option>
+                                <option>Condominium</option>
+                                <option>Acreage / Rural Property</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Message / Timeline</label>
+                            <textarea rows="4" class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="Tell Brian about your property and when you are looking to sell..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full gold-gradient text-navy font-bold py-4 rounded-sm text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition">
+                            Request Evaluation & Consultation
+                        </button>
+                    </form>
+
+                    <div id="seller-success" class="hidden mt-6 bg-green-50 border border-green-200 text-green-800 p-4 rounded-sm text-center text-sm">
+                        <i class="fa-solid fa-circle-check text-green-600 text-lg mr-2"></i> Thank you! Your evaluation request has been sent to Brian Rogers.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 5: ABOUT BRIAN ================= -->
+        <div id="page-about" class="page-view hidden animate-fadeIn">
+            <div class="bg-navy py-16 text-white px-4">
+                <div class="max-w-7xl mx-auto text-center">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold">Personal Realtor Profile</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Meet Brian Rogers</h1>
+                    <p class="text-gray-300 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+                        Personal Real Estate Corporation - Realtor in Vernon, British Columbia.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                    <!-- Profile Image Card -->
+                    <div class="bg-white p-6 rounded-sm shadow-md border border-gold/30 text-center">
+                        <div class="relative h-80 rounded-sm overflow-hidden mb-6 bg-gray-100 flex items-center justify-center">
+                            <img src="unnamed.png" alt="Brian Rogers Realtor Portrait" class="w-full h-full object-cover object-top" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <h2 class="font-serif text-2xl font-bold text-navy">Brian Rogers</h2>
+                        <p class="text-xs uppercase tracking-widest text-gold font-semibold mt-1">Personal Real Estate Corporation</p>
+                        <p class="text-sm text-gray-600 mt-1">Vernon, British Columbia</p>
+                        
+                        <div class="mt-6 pt-6 border-t border-gray-200">
+                            <a href="tel:2503084255" class="w-full gold-gradient text-navy font-bold py-3 rounded-sm text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-sm">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+1 250-308-4255</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Bio & Approach -->
+                    <div class="lg:col-span-2 space-y-6 text-gray-700 leading-relaxed">
+                        <h3 class="font-serif text-3xl font-bold text-navy">Dedicated, Approachable, and Trusted Guidance</h3>
+                        <p>
+                            Welcome! I am Brian Rogers, operating as a Personal Real Estate Corporation based right here in beautiful Vernon, British Columbia. My approach to real estate is rooted in unwavering responsiveness, exceptional customer service, and professional guidance tailored to your unique goals.
+                        </p>
+                        <p>
+                            Whether you are buying your very first home, upgrading to a larger property, or selling an investment, navigating the real estate market requires clear communication, attention to detail, and a trusted advisor who puts your interests first.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
+                            <div class="bg-white p-6 rounded-sm border border-gold/20 shadow-sm">
+                                <div class="text-gold text-2xl mb-3"><i class="fa-solid fa-clock"></i></div>
+                                <h4 class="font-serif font-bold text-navy text-lg mb-1">Always Responsive</h4>
+                                <p class="text-xs text-gray-600">Available at all hours on any day of the week to answer questions and manage transactions.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-sm border border-gold/20 shadow-sm">
+                                <div class="text-gold text-2xl mb-3"><i class="fa-solid fa-handshake"></i></div>
+                                <h4 class="font-serif font-bold text-navy text-lg mb-1">Clear Communication</h4>
+                                <p class="text-xs text-gray-600">Keeping you informed every step of the way from initial inquiry to final key handover.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-6">
+                            <h4 class="font-serif text-2xl font-bold text-navy mb-3">Office Location</h4>
+                            <p class="text-sm text-gray-700">
+                                4313 27 St #102, Vernon, BC V1T 4Y5, Canada<br>
+                                Serving Vernon, Coldstream, Predator Ridge, and the greater North Okanagan region.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 6: TESTIMONIALS ================= -->
+        <div id="page-testimonials" class="page-view hidden animate-fadeIn">
+            <div class="bg-navy py-16 text-white px-4">
+                <div class="max-w-7xl mx-auto text-center">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold">Client Reviews</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Client Testimonials</h1>
+                    <div class="flex items-center justify-center space-x-2 text-gold mt-3">
+                        <span class="font-bold text-xl">5.0</span>
+                        <div class="flex text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="text-gray-300 text-sm">(10 Google Reviews)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <!-- Highlight Quotes / Review Highlights -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 text-center">
+                    <div class="bg-beige-dark p-6 rounded-sm border border-gold/30">
+                        <p class="font-serif italic text-navy text-sm font-semibold">“You are a treasure to this town, and to your profession.”</p>
+                    </div>
+                    <div class="bg-beige-dark p-6 rounded-sm border border-gold/30">
+                        <p class="font-serif italic text-navy text-sm font-semibold">“He was patient and answered all our questions.”</p>
+                    </div>
+                    <div class="bg-beige-dark p-6 rounded-sm border border-gold/30">
+                        <p class="font-serif italic text-navy text-sm font-semibold">“Easiest thing I have ever sold!”</p>
+                    </div>
+                </div>
+
+                <!-- Main Testimonials Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Jill Bargen -->
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20 flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-gold text-sm mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm italic leading-relaxed">
+                                “Brian responds to calls at all hours on any day of the week, he is always available and ready to work on …”
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between">
+                            <span class="font-serif font-bold text-navy">Jill Bargen</span>
+                            <span class="text-xs text-gray-500">Google Customer Review</span>
+                        </div>
+                    </div>
+
+                    <!-- Diana Wenzlaff -->
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20 flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-gold text-sm mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm italic leading-relaxed">
+                                “From the first email inquiring about selling our properties and buying a new one, to after the keys were in our hands, Brian was a step ahead of us and had everything in order.”
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between">
+                            <span class="font-serif font-bold text-navy">Diana Wenzlaff</span>
+                            <span class="text-xs text-gray-500">Google Customer Review</span>
+                        </div>
+                    </div>
+
+                    <!-- Brittany Smith -->
+                    <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/20 flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-gold text-sm mb-4">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm italic leading-relaxed">
+                                “I had my home listed with another realtor for 90 days without an offer. I then hired Brian and he had my home listed, sold, conditions removed in 21 days!”
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between">
+                            <span class="font-serif font-bold text-navy">Brittany Smith</span>
+                            <span class="text-xs text-gray-500">Google Customer Review</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 7: CONTACT ================= -->
+        <div id="page-contact" class="page-view hidden animate-fadeIn">
+            <div class="bg-navy py-16 text-white px-4">
+                <div class="max-w-7xl mx-auto text-center">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold">Get in Touch</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold mt-2">Contact Brian Rogers</h1>
+                    <p class="text-gray-300 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+                        Ready to buy, sell, or discuss Vernon real estate? Reach out anytime.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Info & Map Card -->
+                    <div class="space-y-8">
+                        <div class="bg-white p-8 rounded-sm shadow-sm border border-gold/30 space-y-6">
+                            <h3 class="font-serif text-2xl font-bold text-navy">Office Information</h3>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-sm bg-navy text-gold flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-building"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-gray-500 font-semibold">Business Name</span>
+                                    <span class="font-serif text-navy font-bold">Brian Rogers Personal Real Estate Corporation - Realtor</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-sm bg-navy text-gold flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-gray-500 font-semibold">Address</span>
+                                    <span class="text-gray-700 text-sm">4313 27 St #102, Vernon, BC V1T 4Y5, Canada</span>
+                                    <span class="block text-xs text-gray-500 mt-0.5">Google Plus Code: 7PGM+9H Vernon, BC</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-sm bg-navy text-gold flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-gray-500 font-semibold">Phone</span>
+                                    <a href="tel:2503084255" class="text-navy font-bold text-lg hover:text-gold transition">+1 250-308-4255</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-sm bg-navy text-gold flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-gray-500 font-semibold">Hours</span>
+                                    <span class="text-gray-700 text-sm">Open 24 Hours</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                                <a href="tel:2503084255" class="gold-gradient text-navy font-semibold px-6 py-3 rounded-sm text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-sm">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>Click to Call</span>
+                                </a>
+                                <a href="https://maps.google.com/?q=4313+27+St+102+Vernon+BC" target="_blank" rel="noopener noreferrer" class="bg-navy text-white font-semibold px-6 py-3 rounded-sm text-xs uppercase tracking-wider flex items-center justify-center space-x-2 hover:bg-navy-light transition">
+                                    <i class="fa-solid fa-map"></i>
+                                    <span>Get Directions</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Map Placeholder Card -->
+                        <div class="bg-white p-4 rounded-sm shadow-sm border border-gold/30">
+                            <div class="relative h-64 rounded-sm overflow-hidden bg-gray-100 flex items-center justify-center">
+                                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Vernon Map Location" class="w-full h-full object-cover opacity-80">
+                                <div class="absolute inset-0 bg-navy/30 flex items-center justify-center">
+                                    <div class="bg-white p-4 rounded-sm shadow-lg text-center">
+                                        <i class="fa-solid fa-location-dot text-gold text-2xl mb-1"></i>
+                                        <p class="font-serif font-bold text-navy text-sm">4313 27 St #102, Vernon, BC</p>
+                                        <a href="https://maps.google.com/?q=4313+27+St+102+Vernon+BC" target="_blank" rel="noopener noreferrer" class="text-xs text-gold font-semibold underline mt-1 block">Open in Google Maps</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-white p-8 sm:p-12 rounded-sm shadow-sm border border-gold/30">
+                        <h3 class="font-serif text-2xl font-bold text-navy mb-2">Send a Message</h3>
+                        <p class="text-gray-600 text-sm mb-6">Fill out the form and Brian will respond promptly.</p>
+
+                        <form id="contact-page-form" onsubmit="handleFormSubmit(event, 'contact-success')" class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Full Name *</label>
+                                <input type="text" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="John Smith">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Email *</label>
+                                    <input type="email" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="john@example.com">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Phone *</label>
+                                    <input type="tel" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="+1 (250) 000-0000">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">I am looking to:</label>
+                                <select class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold">
+                                    <option>Buy Property</option>
+                                    <option>Sell Property</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-700 mb-1">Message *</label>
+                                <textarea rows="5" required class="w-full bg-beige p-3 rounded-sm border border-gray-300 text-sm focus:outline-none focus:border-gold" placeholder="How can Brian help you today?"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full gold-gradient text-navy font-bold py-4 rounded-sm text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition">
+                                Send Message to Brian
+                            </button>
+                        </form>
+
+                        <div id="contact-success" class="hidden mt-6 bg-green-50 border border-green-200 text-green-800 p-4 rounded-sm text-center text-sm">
+                            <i class="fa-solid fa-circle-check text-green-600 text-lg mr-2"></i> Thank you! Your message has been sent successfully. Brian will be in touch shortly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white border-t border-white/10 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Col 1: Brand -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full border border-gold flex items-center justify-center text-gold">
+                            <i class="fa-solid fa-house-chimney text-sm"></i>
+                        </div>
+                        <div>
+                            <span class="block font-serif text-lg font-bold">Brian Rogers</span>
+                            <span class="block text-[10px] text-gold tracking-widest uppercase">Personal Real Estate Corp.</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Professional real estate guidance for buyers and sellers in Vernon, British Columbia and the surrounding North Okanagan.
+                    </p>
+                    <div class="text-xs text-gold">
+                        <i class="fa-solid fa-star"></i> 5.0 Google Rating (10 Reviews)
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-gold uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-300">
+                        <li><button onclick="switchPage('home')" class="hover:text-gold transition">Home</button></li>
+                        <li><button onclick="switchPage('properties')" class="hover:text-gold transition">Properties & Listings</button></li>
+                        <li><button onclick="switchPage('buy')" class="hover:text-gold transition">Buy With Brian</button></li>
+                        <li><button onclick="switchPage('sell')" class="hover:text-gold transition">Sell With Brian</button></li>
+                        <li><button onclick="switchPage('about')" class="hover:text-gold transition">About Brian</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: More Links & Legal -->
+                <div>
+                    <h4 class="font-serif font-bold text-sm text-gold uppercase tracking-wider mb-4">Client Support</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-300">
+                        <li><button onclick="switchPage('testimonials')" class="hover:text-gold transition">Testimonials (Google Reviews)</button></li>
+                        <li><button onclick="switchPage('contact')" class="hover:text-gold transition">Contact & Location</button></li>
+                        <li><a href="#privacy" onclick="alert('Privacy Policy: We respect your privacy and protect all client information in compliance with BC real estate standards.'); return false;" class="hover:text-gold transition">Privacy Policy</a></li>
+                        <li><a href="#terms" onclick="alert('Terms of Use: Information is deemed reliable but not guaranteed. Sample demo listings are for demonstration purposes.'); return false;" class="hover:text-gold transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact Info -->
+                <div class="space-y-3">
+                    <h4 class="font-serif font-bold text-sm text-gold uppercase tracking-wider mb-4">Office & Contact</h4>
+                    <p class="text-xs text-gray-300">
+                        <strong class="text-white">Address:</strong><br>
+                        4313 27 St #102<br>
+                        Vernon, BC V1T 4Y5, Canada
+                    </p>
+                    <p class="text-xs text-gray-300">
+                        <strong class="text-white">Phone:</strong><br>
+                        <a href="tel:2503084255" class="text-gold hover:underline font-semibold">+1 250-308-4255</a>
+                    </p>
+                    <p class="text-xs text-gray-300">
+                        <strong class="text-white">Hours:</strong><br>
+                        Open 24 Hours
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400">
+                <p>&copy; 2026 Brian Rogers Personal Real Estate Corporation - Realtor. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0 text-[11px] text-gray-500">Vernon, British Columbia, Canada</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Script -->
+    <script>
+        // Sample Property Data (Demo Listings)
+        const propertiesData = [
+            {
+                id: 1,
+                title: "Scenic Okanagan Luxury Estate",
+                address: "124 Okanagan View Dr, Vernon, BC",
+                price: 1450000,
+                priceFormatted: "$1,450,000",
+                beds: 4,
+                baths: 3.5,
+                sqft: 3400,
+                type: "Luxury Estate",
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80",
+                gallery: [
+                    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
+                ],
+                description: "A stunning custom-built home featuring panoramic valley and lake views, open-concept living, gourmet kitchen, hardwood floors, and a private landscaped backyard patio in one of Vernon's most desirable neighborhoods.",
+                features: ["Panoramic Lake & Valley Views", "Gourmet Kitchen with Quartz", "Hardwood Flooring", "Double Garage", "Private Landscaped Yard"]
+            },
+            {
+                id: 2,
+                title: "Modern East Hill Family Home",
+                address: "3421 15 Ave, Vernon, BC",
+                price: 825000,
+                priceFormatted: "$825,000",
+                beds: 3,
+                baths: 2,
+                sqft: 2200,
+                type: "Single Family",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
+                gallery: [
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80"
+                ],
+                description: "Charm and modern updates blend seamlessly in this beautiful East Hill residence. Close to schools, parks, and downtown Vernon amenities, offering a warm family atmosphere and mature trees.",
+                features: ["Desirable East Hill Location", "Updated Kitchen & Bathrooms", "Mature Landscaping", "Close to Schools & Parks", "Detached Workshop"]
+            },
+            {
+                id: 3,
+                title: "Predator Ridge Golf Townhome",
+                address: "712 Predator Ridge Dr, Vernon, BC",
+                price: 975000,
+                priceFormatted: "$975,000",
+                beds: 3,
+                baths: 3,
+                sqft: 2500,
+                type: "Townhome",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80",
+                gallery: [
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=80"
+                ],
+                description: "Enjoy maintenance-free resort living right on the fairway at Predator Ridge. Featuring vaulted ceilings, stone fireplace, spacious deck overlooking the golf course, and access to world-class community amenities.",
+                features: ["Fairway Golf Course Views", "Vaulted Ceilings & Stone Fireplace", "Resort Amenities Access", "Spacious Entertainer's Deck", "Double Car Garage"]
+            },
+            {
+                id: 4,
+                title: "Downtown Vernon Penthouse Condo",
+                address: "105-4313 27 St, Vernon, BC",
+                price: 549000,
+                priceFormatted: "$549,000",
+                beds: 2,
+                baths: 2,
+                sqft: 1350,
+                type: "Penthouse Condo",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80",
+                gallery: [
+                    "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
+                ],
+                description: "Sleek, modern penthouse condo situated right in central Vernon. Walking distance to local cafes, restaurants, and shopping. Features floor-to-ceiling windows, high-end stainless appliances, and private rooftop patio space.",
+                features: ["Central Downtown Location", "Floor-to-Ceiling Windows", "Private Rooftop Patio", "Secure Underground Parking", "In-Suite Laundry"]
+            },
+            {
+                id: 5,
+                title: "BX Creek Country Acreage Home",
+                address: "4810 BX Rd, Vernon, BC",
+                price: 1295000,
+                priceFormatted: "$1,295,000",
+                beds: 4,
+                baths: 3,
+                sqft: 3100,
+                type: "Single Family",
+                image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1000&q=80",
+                gallery: [
+                    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+                ],
+                description: "Private country living just minutes from downtown Vernon. Situated on a lush private lot with mature trees, wrap-around porch, spacious workshop, and beautifully updated interior living spaces.",
+                features: ["Private Acreage Setting", "Wrap-Around Porch", "Large Workshop / Barn", "Updated Kitchen & Flooring", "Quiet Rural Neighborhood"]
+            },
+            {
+                id: 6,
+                title: "Kalamalka Lake View Modern Home",
+                address: "89 Kalamalka Rd, Vernon, BC",
+                price: 1850000,
+                priceFormatted: "$1,850,000",
+                beds: 5,
+                baths: 4,
+                sqft: 4200,
+                type: "Luxury Estate",
+                image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80",
+                gallery: [
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80"
+                ],
+                description: "Breathtaking views overlooking turquoise Kalamalka Lake. This luxury residence boasts high ceilings, NanaWall glass doors opening to outdoor living, custom wine cellar, and master retreat with spa ensuite.",
+                features: ["Kalamalka Lake Views", "Custom Wine Cellar", "NanaWall Glass Doors", "Spa Master Ensuite", "Smart Home Automation"]
+            }
+        ];
+
+        // Page Switcher
+        function switchPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-view').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // Show selected page
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update header active states
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('border-gold', 'text-white');
+                    link.classList.remove('border-transparent', 'text-gray-300');
+                } else {
+                    link.classList.remove('border-gold', 'text-white');
+                    link.classList.add('border-transparent', 'text-gray-300');
+                }
+            });
+        }
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Render Featured Properties on Home Page
+        function renderHomeFeatured() {
+            const container = document.getElementById('home-featured-grid');
+            if (!container) return;
+
+            const featured = propertiesData.slice(0, 3);
+            container.innerHTML = featured.map(p => `
+                <div class="bg-white rounded-sm shadow-sm border border-gold/20 overflow-hidden flex flex-col hover:shadow-lg transition group">
+                    <div class="relative h-60 overflow-hidden bg-gray-200">
+                        <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/111C2E/C5A880?text=Vernon+Property'">
+                        <div class="absolute top-3 left-3 bg-navy/90 text-gold text-xs px-3 py-1 rounded-sm uppercase tracking-wider font-semibold">
+                            ${p.type}
+                        </div>
+                        <div class="absolute bottom-3 right-3 bg-navy text-white font-serif font-bold text-lg px-3 py-1 rounded-sm">
+                            ${p.priceFormatted}
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <span class="text-xs text-gray-500 uppercase tracking-widest">${p.address}</span>
+                            <h3 class="font-serif text-xl font-bold text-navy mt-1 mb-3">${p.title}</h3>
+                            <div class="flex items-center space-x-4 text-xs text-gray-600 mb-4 pb-4 border-b border-gray-100">
+                                <span><i class="fa-solid fa-bed text-gold mr-1"></i> ${p.beds} Beds</span>
+                                <span><i class="fa-solid fa-bath text-gold mr-1"></i> ${p.baths} Baths</span>
+                                <span><i class="fa-solid fa-ruler-combined text-gold mr-1"></i> ${p.sqft} sq ft</span>
+                            </div>
+                        </div>
+                        <button onclick="viewPropertyDetail(${p.id})" class="w-full bg-navy text-white hover:bg-navy-light py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition">
+                            View Property
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render Properties Page Grid
+        function renderPropertiesGrid(filteredList) {
+            const container = document.getElementById('properties-grid');
+            const countLabel = document.getElementById('results-count');
+            if (!container) return;
+
+            countLabel.innerText = `Showing ${filteredList.length} sample listing${filteredList.length === 1 ? '' : 's'}`;
+
+            if (filteredList.length === 0) {
+                container.innerHTML = `<div class="col-span-3 text-center py-12 text-gray-500">No properties match your filter criteria. Please try resetting filters.</div>`;
+                return;
+            }
+
+            container.innerHTML = filteredList.map(p => `
+                <div class="bg-white rounded-sm shadow-sm border border-gold/20 overflow-hidden flex flex-col hover:shadow-lg transition group">
+                    <div class="relative h-60 overflow-hidden bg-gray-200">
+                        <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/111C2E/C5A880?text=Vernon+Property'">
+                        <div class="absolute top-3 left-3 bg-navy/90 text-gold text-xs px-3 py-1 rounded-sm uppercase tracking-wider font-semibold">
+                            ${p.type}
+                        </div>
+                        <div class="absolute bottom-3 right-3 bg-navy text-white font-serif font-bold text-lg px-3 py-1 rounded-sm">
+                            ${p.priceFormatted}
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <span class="text-xs text-gray-500 uppercase tracking-widest">${p.address}</span>
+                            <h3 class="font-serif text-xl font-bold text-navy mt-1 mb-3">${p.title}</h3>
+                            <div class="flex items-center space-x-4 text-xs text-gray-600 mb-4 pb-4 border-b border-gray-100">
+                                <span><i class="fa-solid fa-bed text-gold mr-1"></i> ${p.beds} Beds</span>
+                                <span><i class="fa-solid fa-bath text-gold mr-1"></i> ${p.baths} Baths</span>
+                                <span><i class="fa-solid fa-ruler-combined text-gold mr-1"></i> ${p.sqft} sq ft</span>
+                            </div>
+                        </div>
+                        <button onclick="viewPropertyDetail(${p.id})" class="w-full bg-navy text-white hover:bg-navy-light py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition">
+                            View Property
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Properties Function
+        function filterProperties() {
+            const searchTerm = document.getElementById('filter-search').value.toLowerCase();
+            const typeTerm = document.getElementById('filter-type').value;
+            const maxPriceTerm = parseInt(document.getElementById('filter-price').value);
+            const bedsTerm = parseInt(document.getElementById('filter-beds').value);
+            const sortBy = document.getElementById('sort-by').value;
+
+            let result = propertiesData.filter(p => {
+                const matchesSearch = p.title.toLowerCase().includes(searchTerm) || p.address.toLowerCase().includes(searchTerm);
+                const matchesType = typeTerm === "" || p.type === typeTerm;
+                const matchesPrice = p.price <= maxPriceTerm;
+                const matchesBeds = p.beds >= bedsTerm;
+                return matchesSearch && matchesType && matchesPrice && matchesBeds;
+            });
+
+            if (sortBy === 'price-asc') {
+                result.sort((a, b) => a.price - b.price);
+            } else if (sortBy === 'price-desc') {
+                result.sort((a, b) => b.price - a.price);
+            }
+
+            renderPropertiesGrid(result);
+        }
+
+        function resetFilters() {
+            document.getElementById('filter-search').value = '';
+            document.getElementById('filter-type').value = '';
+            document.getElementById('filter-price').value = '99999999';
+            document.getElementById('filter-beds').value = '0';
+            document.getElementById('sort-by').value = 'price-asc';
+            renderPropertiesGrid(propertiesData);
+        }
+
+        // View Property Detail Page
+        function viewPropertyDetail(id) {
+            const prop = propertiesData.find(p => p.id === id);
+            if (!prop) return;
+
+            const container = document.getElementById('property-detail-content');
+            container.innerHTML = `
+                <div class="space-y-8">
+                    <!-- Header Info -->
+                    <div class="flex flex-col md:flex-row md:items-end justify-between">
+                        <div>
+                            <span class="bg-navy text-gold text-xs px-3 py-1 rounded-sm uppercase tracking-wider font-semibold">${prop.type}</span>
+                            <h1 class="font-serif text-3xl sm:text-4xl font-bold text-navy mt-2">${prop.title}</h1>
+                            <p class="text-gray-600 text-sm mt-1"><i class="fa-solid fa-location-dot text-gold mr-1"></i> ${prop.address}</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 text-left md:text-right">
+                            <div class="font-serif text-3xl sm:text-4xl font-bold text-navy">${prop.priceFormatted}</div>
+                            <span class="text-xs text-gray-500 uppercase">Sample Demo Listing</span>
+                        </div>
+                    </div>
+
+                    <!-- Image Gallery -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                        <div class="lg:col-span-2 h-[400px] sm:h-[500px] rounded-sm overflow-hidden shadow-md">
+                            <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/111C2E/C5A880?text=Property+Photo'">
+                        </div>
+                        <div class="grid grid-cols-2 lg:grid-cols-1 gap-4 h-[400px] sm:h-[500px]">
+                            ${prop.gallery.slice(0, 2).map(img => `
+                                <div class="h-full rounded-sm overflow-hidden shadow-md">
+                                    <img src="${img}" alt="Gallery photo" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/111C2E/C5A880?text=Property+Photo'">
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Details Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div class="lg:col-span-2 space-y-8">
+                            <!-- Specs Bar -->
+                            <div class="bg-white p-6 rounded-sm border border-gold/30 shadow-sm grid grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <span class="block text-xs uppercase text-gray-500 font-semibold">Bedrooms</span>
+                                    <span class="font-serif text-2xl font-bold text-navy mt-1 block">${prop.beds}</span>
+                                </div>
+                                <div class="border-x border-gray-200">
+                                    <span class="block text-xs uppercase text-gray-500 font-semibold">Bathrooms</span>
+                                    <span class="font-serif text-2xl font-bold text-navy mt-1 block">${prop.baths}</span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs uppercase text-gray-500 font-semibold">Square Footage</span>
+                                    <span class="font-serif text-2xl font-bold text-navy mt-1 block">${prop.sqft} sqft</span>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="bg-white p-8 rounded-sm border border-gold/30 shadow-sm space-y-4">
+                                <h3 class="font-serif text-2xl font-bold text-navy">About This Property</h3>
+                                <p class="text-gray-700 leading-relaxed">${prop.description}</p>
+                            </div>
+
+                            <!-- Features -->
+                            <div class="bg-white p-8 rounded-sm border border-gold/30 shadow-sm space-y-4">
+                                <h3 class="font-serif text-2xl font-bold text-navy">Property Features</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    ${prop.features.map(f => `
+                                        <div class="flex items-center space-x-2 text-sm text-gray-700">
+                                            <i class="fa-solid fa-check text-gold"></i>
+                                            <span>${f}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Realtor Card -->
+                        <div class="space-y-6">
+                            <div class="bg-navy text-white p-8 rounded-sm shadow-xl border border-gold/30 space-y-6">
+                                <div class="text-center pb-4 border-b border-white/10">
+                                    <div class="w-16 h-16 rounded-full bg-gold/20 text-gold flex items-center justify-center text-2xl mx-auto mb-3">
+                                        <i class="fa-solid fa-user-tie"></i>
+                                    </div>
+                                    <h4 class="font-serif font-bold text-xl">Brian Rogers</h4>
+                                    <span class="text-xs text-gold uppercase tracking-wider block mt-0.5">Personal Real Estate Corp.</span>
+                                    <p class="text-xs text-gray-300 mt-2">Vernon, BC</p>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <a href="tel:2503084255" class="w-full gold-gradient text-navy font-bold py-3 rounded-sm text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md hover:opacity-95 transition">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <span>Call +1 250-308-4255</span>
+                                    </a>
+                                    <button onclick="switchPage('contact')" class="w-full bg-transparent border border-white text-white font-semibold py-3 rounded-sm text-xs uppercase tracking-wider hover:bg-white hover:text-navy transition">
+                                        Contact Realtor
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-beige-dark p-6 rounded-sm border border-gold/30 text-center space-y-2">
+                                <h5 class="font-serif font-bold text-navy">Want to schedule a viewing?</h5>
+                                <p class="text-xs text-gray-600">Contact Brian directly to arrange a private tour of this property.</p>
+                                <button onclick="switchPage('contact')" class="mt-2 text-xs text-gold font-semibold uppercase tracking-wider underline">Request Viewing Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Switch to detail sub-view
+            document.querySelectorAll('.page-view').forEach(el => el.classList.add('hidden'));
+            document.getElementById('page-property-detail').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(event, successId) {
+            event.preventDefault();
+            const successDiv = document.getElementById(successId);
+            if (successDiv) {
+                successDiv.classList.remove('hidden');
+                event.target.reset();
+                setTimeout(() => {
+                    successDiv.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            renderHomeFeatured();
+            renderPropertiesGrid(propertiesData);
+        };
+    </script>
+</body>
+</html>
